@@ -29,6 +29,9 @@ public class EmailUtil {
 	@Value("${email.username}")
 	private String username;
 
+	@Value("${email.to.username}")
+	private String usernameto;
+
 	@Autowired
 	private TicketSummaryService ticketSummaryService;
 
@@ -70,11 +73,11 @@ public class EmailUtil {
 		String formattedDate = previousMonthDate.format(formatter); // Ejemplo: "diciembre 2024" si es en enero 2025
 		// Hacer que la primera letra del mes sea mayúscula y el resto minúscula
 		formattedDate = formattedDate.substring(0, 1).toUpperCase() + formattedDate.substring(1);
-		String to = "peter.valdivia@inferencelabs9.com,carlos.asmat@inferencelabs9.com,cesar.hinojosa@inferencelabs9.com"; // Destinatarios
+		//String to = "peter.valdivia@inferencelabs9.com,carlos.asmat@inferencelabs9.com,cesar.hinojosa@inferencelabs9.com,joel.arauzo@inferencelabs9.com"; // Destinatarios
 		String subject = "[Sole] Cantidad de tickets atendidos por el DVA - " + formattedDate;
 		String text = "Este es un correo enviado automáticamente el segundo día de cada mes.";
 
 		// Llamar al método para enviar el correo
-		sendEmailWithAttachment(to, subject, text);
+		sendEmailWithAttachment(usernameto, subject, text);
 	}
 }
