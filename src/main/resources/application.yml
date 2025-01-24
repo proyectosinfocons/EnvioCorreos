@@ -1,0 +1,18 @@
+spring.mail:
+  default-encoding: UTF-8
+  host: smtp.office365.com
+  username: no-reply@inferencelabs9.com # Cambia a tu correo de Outlook
+  password: Inferencelabs9$2025%
+  port: 587
+  properties:
+    mail:
+      ssl:
+        enable: false  # Outlook no requiere SSL en este caso
+      smtp:
+        timeout: 5000
+        auth: true
+        starttls:
+          enable: true
+          required: true
+  protocol: smtp
+  test-connection: false
